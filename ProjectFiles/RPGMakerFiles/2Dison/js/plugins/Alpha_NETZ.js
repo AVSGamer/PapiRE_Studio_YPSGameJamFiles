@@ -1587,8 +1587,8 @@
     @default Join Random Room
     @param settings
     @default Settings
-    @param start
-    @default Start
+    @paramstart
+    @defaultStart
     @param leave
     @default Leave
     @param joinGame
@@ -1596,11 +1596,11 @@
     @param ready
     @default Ready
     @param character
-    @default Character
+    @default Character",
     @param close
     @default Close
     @param welcome
-    @default Welcome, %1
+    @defailt Welcome, %1
     @param playersCount
     @default Players on server: %1
 */
