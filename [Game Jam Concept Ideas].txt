@@ -1,0 +1,27 @@
+[Game Jam Concept Ideas]
+Free API - Shazam - Songs
+RPGMaker MV
+
+1) Underwater Singer -
+Room is flooded and you have to guess the alien or creature's songs correctly to lower the flood, the longer it takes to make the correct guess, the higher the flood goes until the player drowns. The longer you survive the higher your score. #Single-Player #Leaderboards
+
+https://www.reddit.com/r/gameideas/comments/1gbj7is/stardew_valley_but_with_resturant_2d_pixel_game/
+
+2) Harvest Moon/Restaurant Management Game - 
+Play the life of a restaurant owner/farmer who prepares his ingredients and buys those he can't produce while at the same managing a restaurant with NPCs as employees. Managing bills as well and difficulty rising periodically making random events that would hurt the player's progress happen more often such as equipment breaking down and needing to hire a repairman or ingredient costs surging in prices or a farm devastating plague occurring, etc..
+Game ends when the player runs out of money. Leaderboard is based of highest difficulty level attained right before running out of money.
+
+3) 2D Version of Edison.io - props by ShylenKnigh
+
+Will most likely proceed with #3.
+Luckily found a plugin/js script that can play a youtube video link, but might need to edit the plugin to change the size of the player in-game.
+
+If I can't have the video playing on the map environment then I will have it available from anywhere in the game through the player's main menu.
+
+Now ideas for minigames...
+
+MiniGames:
+LuckOnlyBasedLeaderboard
+
+Footnotes:
+Can Actors be NFTs or Room Creation tied to NFTs?
