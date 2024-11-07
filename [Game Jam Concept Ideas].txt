@@ -24,4 +24,4 @@ MiniGames:
 LuckOnlyBasedLeaderboard
 
 Footnotes:
-Can Actors be NFTs or Room Creation tied to NFTs?
+Can Actors be NFTs or Room Creation tied to NFTs? - Going to need editing of MP Plugin
