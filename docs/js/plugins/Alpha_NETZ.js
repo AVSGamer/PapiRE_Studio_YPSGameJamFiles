@@ -26458,8 +26458,8 @@ ANET.UI = function() {};
     var p;
     p = this.getParam("connection", {
       serverIp: "195.161.41.20",
-      serverPort: "3034",
-      isHttpsConnection: false
+      serverPort: "3035",
+      isHttpsConnection: true
     });
     this._ip = p.serverIp;
     this._port = p.serverPort;
