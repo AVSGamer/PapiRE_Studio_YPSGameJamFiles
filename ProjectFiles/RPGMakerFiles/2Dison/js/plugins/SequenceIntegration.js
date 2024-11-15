@@ -27,9 +27,9 @@
  * I NEED AN ADULT!
 */
 
-import { SequenceKit, createConfig } from '@0xsequence/kit'
+var { SequenceKit, createConfig } = require('@0xsequence/kit');
 
-export function App(projectKey,waasKey,projectID) {
+var result = function App(projectKey,waasKey,projectID) {
     const projectAccessKey = projectKey;
     const waasConfigKey = waasKey;
     const isDev = false; // change to your preference
@@ -60,12 +60,10 @@ export function App(projectKey,waasKey,projectID) {
       enableConfirmationModal
     });
 
-    return (
-      <SequenceKit config={config}>
-        <MyPage />
-      </SequenceKit>
-    );
+    return '<SequenceKit config={config}><MyPage /></SequenceKit>'
 };
+
+module.exports.App = result;
 
 (function() {
     var params = PluginManager.parameters("SequenceIntegration");
