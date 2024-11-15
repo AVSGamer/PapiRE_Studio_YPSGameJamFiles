@@ -1,12 +1,15 @@
 {
-    "name": "",
+    "name": "2Dison",
     "main": "index.html",
     "js-flags": "--expose-gc",
     "window": {
-        "title": "",
+        "title": "2Dison",
         "toolbar": false,
         "width": 816,
         "height": 624,
         "icon": "icon/icon.png"
+    },
+    "dependencies": {
+        "@0xsequence/kit": "^4.4.4"
     }
 }

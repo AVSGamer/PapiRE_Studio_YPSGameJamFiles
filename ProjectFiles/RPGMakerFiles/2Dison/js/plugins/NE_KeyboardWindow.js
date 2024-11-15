@@ -108,7 +108,7 @@ Nebula.KeyboardWindow = Nebula.KeyboardWindow || {};
  * @param Allowed charset
  * @desc Allowed charaset for the window;
  * @type text 
- * @default abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ?=()/&%$"!^<>-.,;0123456789+-/*\
+ * @default abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ?_=()/&%$"!@^<>.,;0123456789+-/*\
  *
  */
  //=============================================================================
