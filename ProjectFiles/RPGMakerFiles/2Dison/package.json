@@ -1,12 +1,16 @@
 {
     "name": "2Dison",
     "main": "index.html",
-    "js-flags": "--expose-gc",
+    "js-flags": "--expose-gc --experimental-modules",
     "window": {
         "title": "2Dison",
         "toolbar": false,
         "width": 816,
         "height": 624,
         "icon": "icon/icon.png"
+    },
+    "type": "module",
+    "dependencies": {
+        "thirdweb": "^5.68.0"
     }
 }
