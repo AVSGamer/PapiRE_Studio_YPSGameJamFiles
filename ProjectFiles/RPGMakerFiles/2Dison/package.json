@@ -9,6 +9,7 @@
 	},
 	"devDependencies": {
 		"@fenixengine/tools": "^0.3.1",
+		"@fenixengine/wizard": "^3.1.0",
 		"ava": "^6.2.0",
 		"eslint": "^8.0.1",
 		"eslint-plugin-import": "^2.25.2",
@@ -16,8 +17,11 @@
 		"eslint-plugin-rpgmaker": "^2.0.0"
 	},
 	"dependencies": {
+		"@0xsequence/kit": "^4.4.4",
+		"@rollup/plugin-json": "^6.1.0",
 		"eslint-config-standard": "^17.1.0",
-		"eslint-plugin-n": "^15.0.0"
+		"eslint-plugin-n": "^15.0.0",
+		"thirdweb": "^5.68.0"
 	},
 	"eslintConfig": {
 		"extends": "standard",
@@ -39,5 +43,9 @@
 	},
 	"eslintIgnore": [
 		"/games/"
-	]
+	],
+	"scripts": {
+		"dev": "fenix serve",
+		"build": "fenix build"
+	}
 }
