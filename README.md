@@ -93,6 +93,7 @@ We know it is possible but at the conclusion of this hackathon we just couldn't 
 4 - [Mobile Operation issue] - Scrolling down to view all playable characters is down by tap-dragging on the very bottom edge of the touchscreen. Not sure if this is easily modifiable.
 5 - [Mobile Operation issue] - Appraisal Dragon's usage of the TextInput Plugin may causes lockup due to the unavailable support for mobile version onscreen keyboard of the plugin. This means mobile version cannot be hosts at the moment as well.
 6 - Missing Manual or Instructions for how to navigate the game on mobile, same with PC but that's usually a given for PC Users.
+7 - Lastly! Almost forgot, if a player joins the room before the host can initialize the details of the YouTube Livestream Link and Event Details Section, they may not work as intended. It will not crash the game but the variable supposed to hold those values might get overwritten by other player's inputs. Need to set the event up as something that would only get triggered by the host. The plugin has options for it.
 
 ## Github Repository Link
 [https://github.com/AVSGamer/PapiRE_Studio_YPSGameJamFiles][^8]
