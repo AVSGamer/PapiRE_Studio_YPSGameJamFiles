@@ -75,6 +75,17 @@ The Game Engine we used is **RPG Maker MV**[^2] along with some community-made o
 ## Project Use Case
 You have a Public or Private event which you may want to stream on YouTube or not. Whichever is the case, you can still utilize 2Dison to host an Event Room. After the event, you can take note of the Leaderboard's results to know who would win prizes if there are any, and also use the game as an online chatroom for the event.
 
+## Proposal for Blockchain Integration
+We know it is possible but at the conclusion of this hackathon we just couldn't achieve it. Give enough time and effort I am sure we can integrate blockchain with things like SBT NFTs that proves a person was in the 2Dison Event of the Actual Event and have the option to enable rewards which would be automatically distributed at the end of the event or as confirmed by the event host. I will leave it up to investors to think of how they would want to monetize this game if they want to but right now this is already usable for free on browsers. We could also give the host an option to select a different map or different combination of mini-games once we have developed more of those.
+
+### Roadmap
+1 - Either collaborate with or recreate what FeniXEngine Developer have made to finally be able to develop the Web3 Integration Plugin for RPGMakerMV.
+-- This is because at the moment of writing his work is still in development with some experimental features which doesn't have an easy TURN OFF switch. One problem I would like to resolve is how Rollup.js should be able to work with .json files as needed for creating the Web3 Integration Plugin. His work is crucial in this project because by default the typical method of importing libraries into Plugins in RPGMakerMV breaks compatibility with Browser Version Deployment. e.g. require vs import
+
+2 - Once Blockchain Integration is succesful we can then modify the current state of the game to incorporate blockchain features.
+
+3 - Add more mini-games and maps.
+
 ## Github Repository Link
 [https://github.com/AVSGamer/PapiRE_Studio_YPSGameJamFiles][^8]
 
