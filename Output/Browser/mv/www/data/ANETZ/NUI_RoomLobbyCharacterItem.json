@@ -29,7 +29,7 @@
                 {
                     "id": "characterImageSprite",
                     "type": "image",
-                    "parameters": "folderName:Alpha;keepAspect",
+                    "parameters": "keepAspect",
                     "bindings": {
                         "size": { "width": "50%", "height": "100% - 2"},
                         "position": { "x": "8dp", "y": "0"},

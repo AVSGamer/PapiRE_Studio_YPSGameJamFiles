@@ -108,7 +108,7 @@ Nebula.KeyboardWindow = Nebula.KeyboardWindow || {};
  * @param Allowed charset
  * @desc Allowed charaset for the window;
  * @type text 
- * @default abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ?=()/&%$"!^<>-.,;0123456789+-/*\
+ * @default abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ?_=()/&%$"!@^<>.,;0123456789+-/*\
  *
  */
  //=============================================================================
@@ -139,6 +139,7 @@ Nebula.KeyboardWindow = Nebula.KeyboardWindow || {};
 		var self = this;
 		keyEvent = function(e) {
 			var kk = e.key 
+			if([17].contains(e.which)) {return;}
 			if([37,38,39,40].contains(e.which)) {return;}
 			if([8, 46].contains(e.which)) {
 				SoundManager.playCancel();

@@ -3,7 +3,7 @@
     "type": "group",
     "parameters": "",
     "constants": {
-        "notSelectedActorText": "<not selected>",
+        "notSelectedActorText": "<character not yet selected>",
         "readyStateText": "READY",
         "inGameStateText": "IN GAME"
     },
@@ -32,11 +32,12 @@
                 {
                     "id": "playerCharacterImageSprite",
                     "type": "image",
-                    "parameters": "folderName:Alpha;keepAspect",
+                    "parameters": "keepAspect",
                     "bindings": {
                         "size": { "width": "20%", "height": "100% - 2"},
                         "position": { "x": "0", "y": "0"},
-                        "image": "$getActorFaceImage"
+                        "image": "$getActorFaceImage",
+                        "visible": true
                     }
                 },
                 {
@@ -47,7 +48,7 @@
                         "size": { "width": "60%", "height": "36dp"},
                         "position": { "x": "prevEndX + 8dp", "y": "center - 6dp"},
                         "fontSize": "24hdp",
-                        "text": "Player 443"
+                        "text": ["%1", "$getPlayerName"]
                     }
                 },
                 {

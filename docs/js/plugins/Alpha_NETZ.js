@@ -1579,35 +1579,87 @@
 /*~struct~LLocaleDB:
     @param network
     @default Network
+
     @param createRoom
     @default Create Room
+
     @param joinRoom
     @default Join Room
+
     @param joinRandomRoom
     @default Join Random Room
+
     @param settings
     @default Settings
-    @paramstart
-    @defaultStart
+
+    @param start
+    @default Start
+
     @param leave
     @default Leave
+
     @param joinGame
     @default Join Game
+
     @param ready
     @default Ready
+
     @param character
-    @default Character",
+    @default Character
+
     @param close
     @default Close
+
     @param welcome
     @defailt Welcome, %1
+    @desc %1 will be replaced by Player Name
+
     @param playersCount
     @default Players on server: %1
+    @desc %1 will be replaced by players count (number)
 */
 
 /*~struct~LLocaleDB:ru
     @param network
     @default Мультиплеер
+
+    @param createRoom
+    @default Создать комнату
+
+    @param joinRoom
+    @default Присоединиться
+
+    @param joinRandomRoom
+    @default Слуйчайная комната
+
+    @param settings
+    @default Настройки
+
+    @param start
+    @default Начать
+
+    @param leave
+    @default Покинуть
+
+    @param joinGame
+    @default Вступить
+
+    @param ready
+    @default Готов
+
+    @param character
+    @default Персонаж
+
+    @param close
+    @default Закрыть
+
+    @param welcome
+    @default Привет, %1
+    @desc %1 будет заменён на имя игрока
+
+    @param playersCount
+    @default Игроков на сервере: %1
+    @desc %1 будет заменён на количество игроков (число)
 */
 
 /*~struct~LPlayerMenuOption:
@@ -20687,7 +20739,8 @@ ANET.Utils = KDCore.Utils.ANET;
 (function() {
   var _;
   //@[DEFINES]
-  _ = KDCore.Utils.ANET;
+  _ = ANET.Utils;
+  //KDCore.Utils.ANET; supposed to go to above line...
   _.isGameInActiveState = function() {
     return window.top.document.hasFocus();
   };
@@ -30758,7 +30811,10 @@ Sprite_NetworkRoom_CharacterListItem = class Sprite_NetworkRoom_CharacterListIte
     var e;
     try {
       if (this.characterData != null) {
-        return ANET.Utils.getActorFaceForNetwork(this.characterData);
+        //Below kinda works as intended but the problem is with the NUI thingy using a different image file reference the pass value below as an index of that imageMap.???
+        return this.characterData.faceName;
+        //Below somehow doesn't work
+        //return ANET.Utils.getActorFaceForNetwork(this.characterData);
       }
     } catch (error) {
       e = error;
@@ -30871,13 +30927,17 @@ Sprite_NetworkRoom_PlayerListItem = class Sprite_NetworkRoom_PlayerListItem exte
         if (this.playerData.actorId > 0) {
           actor = $dataActors[this.playerData.actorId];
           if (actor != null) {
-            return ANET.Utils.getActorFaceForNetwork(actor);
+            return actor.faceName;
+            //Below doesn't work.
+            //return ANET.Utils.getActorFaceForNetwork(actor);
           }
         } else if (!this.isCanSelectActors()) {
           possibleActorId = ANET.PP.actorsForNetwork()[ANGameManager.playersData.indexOf(this.playerData)];
           actor = $dataActors[possibleActorId];
           if (actor != null) {
-            return ANET.Utils.getActorFaceForNetwork(actor);
+            return actor.faceName;
+            //Below doesn't work.
+            //return ANET.Utils.getActorFaceForNetwork(actor);
           }
         }
       }
@@ -30885,6 +30945,7 @@ Sprite_NetworkRoom_PlayerListItem = class Sprite_NetworkRoom_PlayerListItem exte
       e = error;
       KDCore.warning(e);
     }
+    //below does work though
     return "faceNoActor";
   }
 
@@ -30915,6 +30976,19 @@ Sprite_NetworkRoom_PlayerListItem = class Sprite_NetworkRoom_PlayerListItem exte
     }
     return "???";
   }
+
+  getPlayerName = function() {
+    var e;
+    try {
+      if (ANGameManager.myPlayerData() != null) {
+        return ANGameManager.myPlayerData().name;
+      }
+    } catch (error) {
+      e = error;
+      KDCore.warning(e);
+    }
+    return "Player";
+  };
 
   isReady() {
     var e;
