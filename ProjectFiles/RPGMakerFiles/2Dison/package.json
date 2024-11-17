@@ -1,12 +1,51 @@
 {
-    "name": "",
-    "main": "index.html",
-    "js-flags": "--expose-gc",
-    "window": {
-        "title": "",
-        "toolbar": false,
-        "width": 816,
-        "height": 624,
-        "icon": "icon/icon.png"
-    }
+	"name": "web3-integration",
+	"description": "RPGMakerMV integration with Blockchain Technology.",
+	"author": "Khayeel",
+	"version": "0.1.0",
+	"license": "MIT",
+	"repository": {
+		"private": true
+	},
+	"devDependencies": {
+		"@fenixengine/tools": "^0.3.1",
+		"@fenixengine/wizard": "^3.1.0",
+		"ava": "^6.2.0",
+		"eslint": "^8.0.1",
+		"eslint-plugin-import": "^2.25.2",
+		"eslint-plugin-promise": "^6.0.0",
+		"eslint-plugin-rpgmaker": "^2.0.0"
+	},
+	"dependencies": {
+		"@0xsequence/kit": "^4.4.4",
+		"@rollup/plugin-json": "^6.1.0",
+		"eslint-config-standard": "^17.1.0",
+		"eslint-plugin-n": "^15.0.0",
+		"thirdweb": "^5.68.0"
+	},
+	"eslintConfig": {
+		"extends": "standard",
+		"plugins": [
+			"rpgmaker"
+		],
+		"parserOptions": {
+			"ecmaVersion": "latest",
+			"sourceType": "module"
+		},
+		"env": {
+			"rpgmaker/mv": true,
+			"rpgmaker/mz": true
+		},
+		"globals": {},
+		"rules": {
+			"camelcase": "off"
+		}
+	},
+	"eslintIgnore": [
+		"/games/"
+	],
+	"scripts": {
+		"dev": "fenix serve",
+		"build": "fenix build"
+	}
 }
