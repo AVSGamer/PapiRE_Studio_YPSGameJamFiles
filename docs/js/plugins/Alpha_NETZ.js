@@ -26511,8 +26511,8 @@ ANET.UI = function() {};
     var p;
     p = this.getParam("connection", {
       serverIp: "195.161.41.20",
-      serverPort: "3035",
-      isHttpsConnection: true
+      serverPort: "3034",
+      isHttpsConnection: false
     });
     this._ip = p.serverIp;
     this._port = p.serverPort;
