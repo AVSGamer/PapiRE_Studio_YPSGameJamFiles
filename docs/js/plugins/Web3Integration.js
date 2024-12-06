@@ -1169,17 +1169,70 @@ Game_Interpreter.prototype.authenticate_user = async function() {
     $gameVariables.setValue(21,'Project ClientID: '+client.clientId);
 };
 
-Game_Interpreter.prototype.parseG2Input = async function(g2input) {
-    function sha256(str) {
-        const buffer = new TextEncoder().encode(str);
-        return crypto.subtle.digest("SHA-256", buffer).then(hash => { return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join(''); }
-    )}    sha256(g2input).then(hash => { 
-        // Convert the hex string to an integer
-         const hashInt = parseInt(hash, 16); 
-         // Scale the result to be between 1 and 100
-         const score = (hashInt % 100) + 1;
-         $gameVariables.setValue(20,score);
-        });
+Game_Interpreter.prototype.parseG2Input = async function(g2input, roomSecret) {
+    //formula here
+    const charTable = "ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_0123456789/=@<>abcdefghijklmnopqrstuvwxyz{}|~!#$%&()*+-:;ÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜĀĒĪŌǕÃÅÆÇÐÑÕØŠŴÝŶŸŽÞŒœßáéíóúàèìòùâêîôûäëïöüāēīōǖãåæçðñõøšŵýÿŷžþ«»";// Array of every possible character from form. 174 elements
+    var indexChar = [];
+    var indexSum = 0;
+    var toScore = 0;
+    var charNotFound = false;
+    //add all characters' indexes into a single digit then add 1 for a maximum possible value of 10 and store in indexSum
+    for(var i=0;i<g2input.length;i++)
+    {
+        for(var j=0;j<charTable.length;j++)
+        {
+            charNotFound = true;
+            if(charTable[j]==g2input[i]){
+                indexChar[i] = j;
+                charNotFound = false;
+                break;
+            }
+        }
+        if(charNotFound==true){
+            $gameSwitches.setValue(5,true);
+            return;
+        };
+    }
+    var index1Digits = Array(indexChar.length).fill(0);
+    for(var i=0;i<indexChar.length;i++)
+    {
+        for(var j=0;j<indexChar[i].toString().length;j++)
+            {
+                index1Digits[i] = index1Digits[i] + Number.parseInt(indexChar[i].toString()[j]); //max element value = 12
+            }
+    }
+    for(var i=0;i<index1Digits.length;i++)
+    {
+        if(index1Digits[i].toString().length>1)
+        {
+            var pass2 = 0;
+            for(var j=0;j<index1Digits[i].toString().length;j++)
+            {
+                pass2 = pass2 + Number.parseInt(index1Digits[i].toString()[j]);
+            }
+            index1Digits[i] = pass2;
+        }
+    }
+    for(var i=0;i<index1Digits.length;i++)
+    {
+        indexSum = indexSum + index1Digits[i];
+    }
+    while(indexSum.toString().length>1)
+    {
+        var tempSum = 0;
+        for(var i=0;i<indexSum.toString().length;i++)
+        {
+            tempSum = tempSum + Number.parseInt(indexSum.toString()[i]);
+        }
+        indexSum = tempSum;
+    }
+    //roomSecret can be any integer or decimal? between 1 to 10.
+    //toScore = (roomSecret - indexSum) <- possible values can be from 1 - 1 to 10 - 10 so -9 to 9
+    toScore = roomSecret - (indexSum+1);
+    //-9 -8 -7 -6 -5 -4 -3 -2 -1 0 +1 +2 +3 +4 +5 +6 +7 +8 +9
+    //19 equal parts, 0 = 100 Score, +-1 = 90, +-2 = 80, +-3 = 70, +-4 = 60, +-5 = 50, +-6 = 40, +-7 = 30, +-8 = 20, +-9 = 10
+    var score = 100 - (Math.abs(toScore*10));
+    $gameVariables.setValue(20,score);
 };
 
 })();
